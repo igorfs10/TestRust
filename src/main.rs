@@ -14,6 +14,12 @@ fn main(){
     println! ("{}", CARA.imprimir_dados());
     println! ("Altura = {}", dados_cara.altura);
     println! ("Peso = {}", dados_cara.peso);
+
+    // Tupla(tuple) é um tipo que pode receber mais de uma variável diferente. Para imprimir tem que usar {:?} na string
+    // Tuplas muito grandes não podem ser imprimidas de uma vez. Use ".1" para acessar o item da tupla
+    const ITEM_TUPLA: (i8, f64) = (1, 5.5);
+    println! ("Printar tupla {:?}", ITEM_TUPLA);
+    println! ("Segundo valor da tupla {}", ITEM_TUPLA.1);
 }
 
 /* Em rust você declara a função com fn + nome + parâmetros entre parenteses e
