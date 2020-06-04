@@ -1,5 +1,6 @@
 // A aplicação inicia com a função main
 fn main(){
+    //str é uma variável de texto com tamanho imutável
     const NOME: &str = "Igor";
     const IDADE: u8 = 27;
     // Função macro usa "!"
@@ -10,7 +11,7 @@ fn main(){
 
     const CARA: Pessoa = Pessoa {nome: "João", idade: 55};
     let dados_cara: Dados = Dados {altura: 1.75, peso: 88.0 };
-    println! ("O cara se chama {} e tem {} anos.", CARA.nome, CARA.idade);
+    println! ("{}", CARA.imprimir_dados());
     println! ("Altura = {}", dados_cara.altura);
     println! ("Peso = {}", dados_cara.peso);
 }
@@ -37,6 +38,16 @@ struct Dados {
 struct Pessoa<'a> {
     nome: &'a str,
     idade: u8
+}
+
+// imp implementa funções na struct
+// String é uma variável de texto que tem tamanho mutável
+// format! é um macro que retorna um texto formatado
+// usei "<'_>" que é um lifetime anonimo para sercompativel com a struct
+impl Pessoa<'_>{
+    fn imprimir_dados(&self) -> String {
+        format! ("Nome: {}, Idade: {}", self.nome, self.idade)
+    }
 }
 
 /*
