@@ -20,6 +20,20 @@ fn main(){
     const ITEM_TUPLA: (i8, f64) = (1, 5.5);
     println! ("Printar tupla {:?}", ITEM_TUPLA);
     println! ("Segundo valor da tupla {}", ITEM_TUPLA.1);
+
+
+    // Match é como o switch case de outras linguagens
+    let number: u8 = 5;
+    match number {
+        // Match a single value
+        1 => println!("One!"),
+        // Match several values
+        2 | 3 | 5 | 7 | 11 => println!("This is a prime"),
+        // Match an inclusive range
+        13..=19 => println!("A teen"),
+        // Handle the rest of cases
+        _ => println!("Ain't special"),
+    }
 }
 
 /* Em rust você declara a função com fn + nome + parâmetros entre parenteses e
